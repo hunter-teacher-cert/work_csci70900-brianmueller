@@ -7,7 +7,7 @@ loop while stones > 0
     current player is USER or AI
     current player
         scanner choice of 1, 2, 3 stones
-        TODO LATER: error handling: type anything else --> error, try again
+        TODO LATER: input sanitization: type anything else --> error, try again
     AI
         randomly choose 1, 2, 3
     remove stones
@@ -32,7 +32,14 @@ class Nim {
             if(currentPlayer == "USER"){
                 System.out.println("How many stones do you want to remove? Enter 1, 2, or 3.");
                 int stonesToRemove = scan.nextInt();
+                while(stonesToRemove > 3 || stonesToRemove < 1){
+                    System.out.println("Oops! Try again: enter 1, 2, or 3.");
+                    stonesToRemove = scan.nextInt();
+                }
                 numStones -= stonesToRemove;
+                if(numStones < 0){
+                    numStones = 0;
+                }
                 System.out.println("Stones remaining: " + numStones);
                 if(numStones < 1){
                     break;
@@ -42,6 +49,9 @@ class Nim {
                 int stonesToRemove = compNum();
                 System.out.println("The computer removed " + stonesToRemove);
                 numStones -= stonesToRemove;
+                if(numStones < 0){
+                    numStones = 0;
+                }
                 System.out.println("Stones remaining: " + numStones);
                 if(numStones < 1){
                     break;
