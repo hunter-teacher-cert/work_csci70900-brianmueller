@@ -32,14 +32,16 @@ class Nim {
             if(currentPlayer == "USER"){
                 System.out.println("How many stones do you want to remove? Enter 1, 2, or 3.");
                 int stonesToRemove = scan.nextInt();
-                while(stonesToRemove > 3 || stonesToRemove < 1){
+                while(stonesToRemove > 3 || stonesToRemove < 1){ // number besides 1, 2, 3
                     System.out.println("Oops! Try again: enter 1, 2, or 3.");
                     stonesToRemove = scan.nextInt();
                 }
-                numStones -= stonesToRemove;
-                if(numStones < 0){
-                    numStones = 0;
+                while(stonesToRemove > numStones){ // ex: 2 stones remaining, user enters 3
+                    System.out.println("There are only " + numStones + " stones remaining.");
+                    System.out.println("Try again, enter a number up to " + numStones);
+                    stonesToRemove = scan.nextInt();
                 }
+                numStones -= stonesToRemove;
                 System.out.println("Stones remaining: " + numStones);
                 if(numStones < 1){
                     break;
@@ -47,11 +49,11 @@ class Nim {
                 currentPlayer = "COMPUTER";
             } else {
                 int stonesToRemove = compNum();
+                while(stonesToRemove > numStones){ // in case random choice > stones remaining
+                    stonesToRemove = compNum();
+                }
                 System.out.println("The computer removed " + stonesToRemove);
                 numStones -= stonesToRemove;
-                if(numStones < 0){
-                    numStones = 0;
-                }
                 System.out.println("Stones remaining: " + numStones);
                 if(numStones < 1){
                     break;
