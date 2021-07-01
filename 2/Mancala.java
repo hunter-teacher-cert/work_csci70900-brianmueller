@@ -74,12 +74,20 @@ public class Mancala{
     System.out.print("Which pit would you like to choose from?\n");
     currentIndex = scan.nextInt();
     currentIndex -= 1; // offset for 0-based indexing (pit 1 is index 0)
-    while(checkPitEmpty(currentIndex, playerPits) && (currentIndex < 1 || currentIndex > 5)) { // should also make sure choice is btwn 1-6
-      System.out.println("That pit is empty. Please choose another pit");
+
+    boolean outOfBounds = currentIndex < 0 || currentIndex > 5;
+    while(outOfBounds || checkPitEmpty(currentIndex, playerPits)) { // should also make sure choice is btwn 1-6
+      if(outOfBounds){
+        System.out.println("Please choose a pit from 1 through 6");
+      }else{
+        System.out.println("That pit is empty. Please choose another pit");
+      }
       System.out.print("Which pit would you like to choose from?\n");
       currentIndex = scan.nextInt();
       currentIndex -= 1; // offset for 0-based indexing (pit 1 is index 0)
+      outOfBounds = currentIndex < 0 || currentIndex > 5;
     }
+
     System.out.println("");
 
     int stonesInHand = playerPits[currentIndex]; // stores # of stones in new variable
@@ -169,6 +177,13 @@ public class Mancala{
 
 
   public static void main(String[] args) {
+    System.out.println("Welcome to the game of Mancala.");
+    System.out.println("On the left is the AI's mancala.");
+    System.out.println("On the right is your mancala.");
+    System.out.println("In the middle is the pits.");
+    System.out.println("The top row of 4's belongs to the AI.");
+    System.out.println("The bottom row of 4's belongs to you.");
+
     showBoard();
 
     while(!allPitsEmpty(playerPits) || !allPitsEmpty(aiPits)) {
