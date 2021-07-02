@@ -134,7 +134,7 @@ public class Cgol
   {
 
     char[][] board;
-    board = createNewBoard(5,5);
+    board = createNewBoard(25,25);
     printBoard(board);
 
     //breathe life into some cells:
