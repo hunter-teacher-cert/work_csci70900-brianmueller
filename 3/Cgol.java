@@ -1,3 +1,13 @@
+/*
+Programming in a High Level Language
+In Class assignment - 7/1/21
+Mancala
+by
+Emma Wingreen
+Peter Tsun
+Brian Mueller
+*/
+
 import java.io.*;
 import java.util.*;
 
