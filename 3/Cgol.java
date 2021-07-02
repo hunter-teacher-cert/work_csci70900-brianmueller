@@ -181,27 +181,51 @@ public class Cgol
     // System.out.println(myR + ", " + myC + " next gen: " + getNextGenCell(board,myR,myC)); // -
 
 
+    // board = generateNextBoard(board);
+    // System.out.println("Gen X+1:");
+    // printBoard(board);
+    // System.out.println("--------------------------\n\n");
+    //
+    // board = generateNextBoard(board);
+    // System.out.println("Gen X+2:");
+    // printBoard(board);
+    // System.out.println("--------------------------\n\n");
+    //
+    // board = generateNextBoard(board);
+    // System.out.println("Gen X+3:");
+    // printBoard(board);
+    // System.out.println("--------------------------\n\n");
 
 
 
 
+    Scanner in = new Scanner(System.in);
+    char userInput;
+    int counter = 0;
+
+    //While user presses "Y" show next generation newBoard
+    do {
+      //Prompt user to enter Y or N
+      System.out.print("Do you want to see the next board? Choose Y or N.\n");
+
+      //Read in user input
+      userInput = in.next().charAt(0);
+
+      //If user input is invalid throw an error message
+      if(userInput == 'Y'){
+        board = generateNextBoard(board); //generate the next gameBoard
+        counter++;                        //increase counter by 1
+        System.out.println("Gen X+" + counter + ":"); //print generation of next board
+        printBoard(board);                //print next board
+        System.out.println("--------------------------\n\n");
+      } else if (userInput == 'N'){
+          break;
+      } else {
+        System.out.print("Invalid response. Choose Y or N.\n");
+      }
+    } while(userInput != 'N');
 
 
-
-    board = generateNextBoard(board);
-    System.out.println("Gen X+1:");
-    printBoard(board);
-    System.out.println("--------------------------\n\n");
-
-    board = generateNextBoard(board);
-    System.out.println("Gen X+2:");
-    printBoard(board);
-    System.out.println("--------------------------\n\n");
-
-    board = generateNextBoard(board);
-    System.out.println("Gen X+3:");
-    printBoard(board);
-    System.out.println("--------------------------\n\n");
 
 
 
