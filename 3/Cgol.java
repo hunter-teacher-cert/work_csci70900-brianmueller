@@ -1,7 +1,7 @@
 /*
 Programming in a High Level Language
 In Class assignment - 7/1/21
-Mancala
+Conway's Game of Life
 by
 Emma Wingreen
 Peter Tsun
