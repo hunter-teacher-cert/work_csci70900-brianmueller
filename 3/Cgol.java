@@ -37,11 +37,24 @@ public class Cgol
     //Use a nested for loop to print each cell in the board
     for(int row = 0; row < board.length; row++) {
       for (int col = 0; col < board[row].length; col++){
-        System.out.print(board[row][col]);
+        System.out.print(board[row][col] + " ");
       }
       System.out.println();
     }
   }
+
+  // line 40 broke when we did board[row][col] + ' '
+  // int + int ==> int
+  // str + str ==> str
+  // str + int ==> str
+  // char + str ==> str
+  // char + char ==> unicode conversion???
+  // Gen X:
+  // 77120777777
+  // 77771207777
+  // 1201201207777
+  // 7777777777
+  // 7777777777
 
   //set cell (r,c) to val
   public static void setCell(char[][] board, int r, int c, char val){
