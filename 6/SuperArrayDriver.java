@@ -56,6 +56,10 @@ public class SuperArrayDriver
 
     sa.remove(15);
     System.out.println(sa);
+
+    sa.set(19,91);
+    System.out.println(sa);
+
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 

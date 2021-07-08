@@ -95,6 +95,11 @@ public class SuperArray
     return data[index];
   }
 
+  public void set(int index, int value) {
+    data[index] = value;
+  }
+
+
   // example: {0,1,2,3,4,0,0,0,0,0}
   // note: tofr swung by and suggested we further discuss what we want toString to print
   //i.e., do we want to print only meaningful data?
