@@ -1,3 +1,6 @@
+// Brian Mueller
+// Mamudu Wally
+//Peter Tsun
 import java.io.*;
 import java.util.*;
 
@@ -84,15 +87,21 @@ public class SortDemo{
   }
 
 
-
+  // Part 3
   public void sort(){
     int i;
     for (i=0;i < data.size()-1; i++){
       // find the smallet index from i to end
       // your code here
+      int smallestIndex = this.findSmallestIndex(i);
 
       // swap the item at that index and i
       // your code here
+      int temp = data.get(i);
+
+      // data[i] = data[smallestIndex]
+      data.set(i, data.get(smallestIndex));
+      data.set(smallestIndex, temp);
 
 
     }
