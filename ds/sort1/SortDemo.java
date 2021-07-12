@@ -1,6 +1,8 @@
 // Brian Mueller
 // Mamudu Wally
-//Peter Tsun
+// Peter Tsun
+// Lyuba Fridman
+
 import java.io.*;
 import java.util.*;
 
