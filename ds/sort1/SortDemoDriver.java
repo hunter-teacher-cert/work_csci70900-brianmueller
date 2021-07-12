@@ -30,5 +30,11 @@ public class SortDemoDriver {
     sd.sort();
     System.out.println(sd);
 
+    System.out.println("Linear search, finding 10 in sd:  " + sd.linearSearch(10));
+    System.out.println("Linear search, finding 20 in sd2: " + sd2.linearSearch(20));
+
+    System.out.println("Binary search, finding 10 in sd: " + sd.binarySearch(10));
+
+
   }
 }
