@@ -88,7 +88,7 @@ public class SortDemo{
 
 
   // Part 3
-  public void sort(){
+  public void sort(){ // selection sort
     int i;
     for (i=0;i < data.size()-1; i++){
       // find the smallet index from i to end
@@ -154,13 +154,13 @@ public class SortDemo{
       // then update middleIndex based on new lowerIndex and upperIndex.
 
       // if middleElement == input, return middleElement
-      if(data.get(middleIndex) == value){
+      if(data.get(middleIndex).equals(value)){
         return data.get(middleIndex);
       } else {
         if(value > data.get(middleIndex)){ // if input > middleElement, lowerIndex = middleIndex
-          lowerIndex = middleIndex;
+          lowerIndex = middleIndex+1;
         } else { // if input < middle, upperIndex = middleIndex
-          upperIndex = middleIndex;
+          upperIndex = middleIndex-1;
         }
         middleIndex = (upperIndex - lowerIndex)/2; // update middleIndex
       }
