@@ -21,7 +21,7 @@ public class Knights{
     }
     catch(InterruptedException e)
     {
-      
+
     }
 
   }
@@ -124,4 +124,4 @@ public class Knights{
 
 
 
-  }
+}
