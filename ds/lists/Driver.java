@@ -31,13 +31,15 @@ public class Driver{
     Node b = new Node("b",c);
     Node a = new Node("a",b);
     L.setNext(a);
+
+    // ONE way of printing
     // System.out.println(L); // null
     // System.out.println(L.getNext()); // a
     // System.out.println(L.getNext().getNext()); // b
     // System.out.println(L.getNext().getNext().getNext()); // c
     // System.out.println(L.getNext().getNext().getNext().getNext()); // d
 
-    // print out all nodes
+    // ANOTHER way of printing
     // Node tempNode = L;
     // while(tempNode != null){
     //   System.out.print(tempNode + " --> "); // prints extra -->
@@ -54,9 +56,12 @@ public class Driver{
 
     // 2. Write the code to insert an "x"
     //    between the b and the c
+
     Node x = new Node("x");
     x.setNext(c);
     b.setNext(x);
+
+    // ONE way of printing
     // System.out.println(L); // null
     // System.out.println(L.getNext()); // a
     // System.out.println(L.getNext().getNext()); // b
@@ -64,6 +69,7 @@ public class Driver{
     // System.out.println(L.getNext().getNext().getNext().getNext()); // c
     // System.out.println(L.getNext().getNext().getNext().getNext().getNext()); // d
 
+    // ANOTHER way of printing
     // Node tempNode = L;
     // while(tempNode != null){
     //   System.out.print(tempNode + " --> "); // prints extra -->
@@ -77,16 +83,20 @@ public class Driver{
 
     // 3. Write the code to delete the c
     x.setNext(d);
+
+    // ONE way of printing
     // System.out.println(L); // null
     // System.out.println(L.getNext()); // a
     // System.out.println(L.getNext().getNext()); // b
     // System.out.println(L.getNext().getNext().getNext()); // x
     // System.out.println(L.getNext().getNext().getNext().getNext()); // d
 
+    // ANOTHER way of printing
     Node tempNode = L;
     while(tempNode != null){
       System.out.print(tempNode + " --> "); // prints extra -->
       tempNode = tempNode.getNext();
     }
+
   }
 }
