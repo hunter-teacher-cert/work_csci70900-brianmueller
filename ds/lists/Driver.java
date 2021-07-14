@@ -92,11 +92,23 @@ public class Driver{
     // System.out.println(L.getNext().getNext().getNext().getNext()); // d
 
     // ANOTHER way of printing
-    Node tempNode = L;
-    while(tempNode != null){
-      System.out.print(tempNode + " --> "); // prints extra -->
-      tempNode = tempNode.getNext();
-    }
+    // Node tempNode = L;
+    // while(tempNode != null){
+    //   System.out.print(tempNode + " --> "); // prints extra -->
+    //   tempNode = tempNode.getNext();
+    // }
+
+    System.out.println("\n");
+  	System.out.println("Llist");
+  	System.out.println("-----------");
+
+  	Llist ll = new Llist();
+  	System.out.println(ll);
+
+    ll.addFront("c");
+    ll.addFront("b");
+    ll.addFront("a");
+    System.out.println(ll);
 
   }
 }
