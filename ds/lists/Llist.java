@@ -6,7 +6,7 @@ public class Llist{
   private Node front; // the front of the list
 
   public  Llist(){
-    front = new Node(); // was originally null, but has to be a node in order to call .setNext()
+    front = null;
   }
 
   // Add a new node containing data
@@ -15,9 +15,9 @@ public class Llist{
     // make the new node
     Node newNode = new Node(data);
     // point it to what front points to
-    newNode.setNext(front.getNext());
+    newNode.setNext(front);
     // point front to the new node
-    front.setNext(newNode);
+    front = newNode;
   }
 
   public String toString(){
