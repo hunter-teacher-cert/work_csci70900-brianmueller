@@ -105,9 +105,10 @@ public class Driver{
   	Llist ll = new Llist();
   	System.out.println(ll);
 
-    ll.addFront("c");
-    ll.addFront("b");
-    ll.addFront("a");
+    // front --> null
+    ll.addFront("c"); // front --> newNodeC --> null
+    ll.addFront("b"); // front --> newNodeB --> newNodeC
+    ll.addFront("a"); // front --> newNodeA --> newNodeB --> newNodeC
     System.out.println(ll);
 
   }

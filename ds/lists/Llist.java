@@ -15,9 +15,7 @@ public class Llist{
     // make the new node
     Node newNode = new Node(data);
     // point it to what front points to
-    if(front != null){
-      newNode.setNext(front.getNext());
-    }
+    newNode.setNext(front.getNext());
     // point front to the new node
     front.setNext(newNode);
   }
