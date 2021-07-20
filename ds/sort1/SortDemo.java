@@ -1,8 +1,3 @@
-// Brian Mueller
-// Mamudu Wally
-// Peter Tsun
-// Lyuba Fridman
-
 import java.io.*;
 import java.util.*;
 
@@ -34,6 +29,7 @@ public class SortDemo{
 
   /* Instance Variables */
   private ArrayList<Integer> data;  // to store the data
+
   private Random r;
 
 
@@ -41,7 +37,7 @@ public class SortDemo{
     data = new ArrayList<Integer>();
     r = new Random();
     for (int i=0;i<15;i++){
-      data.add(r.nextInt(20)); // [0,19]
+      data.add(r.nextInt(20));
     }
 
   }
@@ -55,8 +51,8 @@ public class SortDemo{
 
   }
 
-  public int get(int i) {
-    return data.get(i);
+  public int get(int index){
+    return this.data.get(index);
   }
 
   /*
@@ -72,40 +68,30 @@ public class SortDemo{
 
     // start a variable at the one after start
     // your code here
-    // int tempIndex = start+1;
-    int smallestSoFar = data.get(smallIndex);
+
     // loop from that variable to end and update smallIndex as needed
     // your code here
-    for(int i = start; i < data.size(); i++){
-      // if current value < smallestSoFar, update smallestSoFar and smallIndex
-      if(data.get(i) < smallestSoFar){
-        smallestSoFar = data.get(i);
+    int i;
+    for (i = smallIndex + 1; i < this.data.size(); i++){
+
+      if (this.data.get(i) < this.data.get(smallIndex)){
         smallIndex = i;
       }
+
     }
-
     return smallIndex;
-
   }
 
 
-  // Part 3
-  public void sort(){ // selection sort
+  public void sort(){
     int i;
+    int smallIndex;
+    int tmp;
     for (i=0;i < data.size()-1; i++){
-      // find the smallet index from i to end
-      // your code here
-      int smallestIndex = this.findSmallestIndex(i);
-
-      // swap the item at that index and i
-      // your code here
-      int temp = data.get(i);
-
-      // data[i] = data[smallestIndex]
-      data.set(i, data.get(smallestIndex));
-      data.set(smallestIndex, temp);
-
-
+      smallIndex = findSmallestIndex(i);
+      tmp = data.get(smallIndex);
+      data.set(smallIndex,data.get(i));
+      data.set(i,tmp);
     }
   }
 
@@ -113,73 +99,60 @@ public class SortDemo{
 
   /* If you finish the lab early you can get started on this */
   public int linearSearch(int value){
-    // loop through the ArrayList data
-    // and if the value you're searchign for is in the ArrayList, return it.
-    // return -1 if it isn't there.
-    for(int i = 0; i < data.size(); i++) {
-      if(data.get(i).equals(value)){
-        return value;
-      }
-    }
-    return -1; // else/default
+
+
+    return 0; // replace this return
   }
 
   /* If you finish the lab early you can get started on this */
   public int binarySearch(int value){
+    return 0;
 
-    int lowerIndex = 0;
-    int upperIndex = data.size();
-    int middleIndex = data.size()/2;
-    boolean lowerLessThanUpper = lowerIndex < upperIndex;
-
-    // PSEUDOCODE
-    // repeat while lowerIndex less than upperIndex
-      // if middleElement == input, return middleElement
-      // else
-        // if input > middleElement, lowerIndex = middleIndex
-        // if input < middle, upperIndex = middleIndex
-    // return -1
-
-
-    /* if upper crosses lower it's not there and the lop should exit the loop
-    and if the item is at middle you should exit the loop
-
-    you have to replace the "replacethiswithrealexpression" boolean
-    with a correct expression based on lowerIndex and upperIndex
-    */
-    while (lowerLessThanUpper)
-    {
-      // update lower and upper.
-      // remember if value is less than data.get(middleIndex) you want to search next time
-      // from lower to the middle and otherwise from the middle to the upper.
-      //
-      // then update middleIndex based on new lowerIndex and upperIndex.
-
-      // if middleElement == input, return middleElement
-      if(data.get(middleIndex).equals(value)){
-        return data.get(middleIndex);
-      } else {
-        if(value > data.get(middleIndex)){ // if input > middleElement, lowerIndex = middleIndex
-          lowerIndex = middleIndex+1;
-        } else { // if input < middle, upperIndex = middleIndex
-          upperIndex = middleIndex-1;
-        }
-        middleIndex = (upperIndex - lowerIndex)/2; // update middleIndex
-      }
-      lowerLessThanUpper = lowerIndex < upperIndex;
-
-    }
-
-    /* replace this return to either return the value if it was found and -1
-    if upperIndex and lowerIndex crossed
-    */
-
-    return -1; // else/default
   }
 
 
   public String toString(){
     return ""+data;
   };
+
+  /*------------------------- MERGESORT STUFF -----------------*/
+
+
+  // Preconditions: a and b are ArrayLists of Integers and
+  //                both are in increasing order
+  // Return: a new ArrayList of Integers that is the result
+  //         of merging a and b. The new ArrayList
+  //         should be in increasing order
+  private ArrayList<Integer> merge(ArrayList<Interger> a,
+  ArrayList<Integer> b){
+
+    return null;
+  }
+
+
+  private ArrayList<Integer> fillForMerge(int size){
+    ArrayList<Integer> a = new ArrayList<Integer>();
+    int lastVal = r.nextInt(10);
+    for (int i = 0 ; i < size ; i=i+1){
+      a.add(lastVal);
+      lastVal = lastVal + r.nextInt(10);
+    }
+    return a;
+
+  }
+  public void testMerge(){
+
+    ArrayList<Integer> a = new ArrayList<Integer>();
+    ArrayList<Integer> b = new ArrayList<Integer>();
+    a = fillForMerge(20);
+    b = fillForMerge(20);
+    System.out.println(a);
+    System.out.println(b);
+
+
+
+  }
+
+
 
 }
