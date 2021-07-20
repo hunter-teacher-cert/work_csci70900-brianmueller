@@ -8,7 +8,7 @@
 # pathToFile
 # example: meth1/01_lesson.md
 # example: ds/sort1/SortDemo.java
-slug="meth1/01_lesson.md"
+slug="meth1/06_unplugged.md"
 
 users=(
 mrbombmusic # Liam
