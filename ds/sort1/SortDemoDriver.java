@@ -13,7 +13,7 @@ import java.util.*;
 public class SortDemoDriver {
   public static void main(String[] args) {
 
-    // SortDemo sd = new SortDemo(); // default size: 15
+    SortDemo sd = new SortDemo(); // default size: 15
     // System.out.println(sd);
     //
     // SortDemo sd2 = new SortDemo(20);

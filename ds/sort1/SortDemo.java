@@ -182,16 +182,40 @@ public class SortDemo{
 
   /*------------------------- MERGESORT STUFF -----------------*/
 
-
   // Preconditions: a and b are ArrayLists of Integers and
   //                both are in increasing order
   // Return: a new ArrayList of Integers that is the result
   //         of merging a and b. The new ArrayList
   //         should be in increasing order
-  private ArrayList<Integer> merge(ArrayList<Interger> a,
-  ArrayList<Integer> b){
+  // a: 1,3,7,9,10
+  // b: 2,6,8
+  // merged: 1,2,3,6,7,8,9,10
+  // a: 9,10
+  // b:
+  // merged: 1,2,3,6,7,8
 
-    return null;
+  // a: 1,3,7,9,10
+  // b: 2,6,8
+  //  a.remove(0) --> remove 1
+  // a: 3,7,9,10
+  // a.get(0) --> 3
+
+  private ArrayList<Integer> merge(ArrayList<Integer> a, ArrayList<Integer> b){
+    //create new ArrayList called merged to store merged values into
+    ArrayList<Integer> merged = new ArrayList<Integer>();
+    // until both are empty
+    while( !a.isEmpty() || !b.isEmpty() ){ // a has element(s) OR b has element(s)
+      //get the first index from array a
+      if(b.isEmpty() || a.get(0) < b.get(0)) { // b is empty OR first a is smaller: move first a to merged
+        //int removed = a.remove(0);
+        //merged.add(removed);
+        merged.add(a.remove(0));
+      } else if(a.isEmpty() || a.get(0) >= b.get(0)) { // a is empty OR first b is smaller/equal: move first b to merged
+        merged.add(b.remove(0));
+      }
+    }
+
+    return merged;
   }
 
 
@@ -200,7 +224,7 @@ public class SortDemo{
     int lastVal = r.nextInt(10);
     for (int i = 0 ; i < size ; i=i+1){
       a.add(lastVal);
-      lastVal = lastVal + r.nextInt(10);
+      lastVal = lastVal + r.nextInt(10); //add a random number to last digit so array is sorted
     }
     return a;
 
@@ -210,12 +234,11 @@ public class SortDemo{
     ArrayList<Integer> a = new ArrayList<Integer>();
     ArrayList<Integer> b = new ArrayList<Integer>();
     a = fillForMerge(20);
-    b = fillForMerge(20);
+    b = fillForMerge(15);
     System.out.println(a);
     System.out.println(b);
-
-
-
+    ArrayList<Integer> abMerged = merge(a,b);
+    System.out.println("a and b merged: " + abMerged);
   }
 
 
