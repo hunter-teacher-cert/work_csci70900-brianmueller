@@ -202,20 +202,23 @@ public class SortDemo{
 
   private ArrayList<Integer> merge(ArrayList<Integer> a, ArrayList<Integer> b){
     //create new ArrayList called merged to store merged values into
-    ArrayList<Integer> merged = new ArrayList<Integer>();
+    ArrayList<Integer> mergedData = new ArrayList<Integer>();
     // until both are empty
-    while( !a.isEmpty() || !b.isEmpty() ){ // a has element(s) OR b has element(s)
-      //get the first index from array a
-      if(b.isEmpty() || a.get(0) < b.get(0)) { // b is empty OR first a is smaller: move first a to merged
-        //int removed = a.remove(0);
-        //merged.add(removed);
-        merged.add(a.remove(0));
-      } else if(a.isEmpty() || a.get(0) >= b.get(0)) { // a is empty OR first b is smaller/equal: move first b to merged
-        merged.add(b.remove(0));
+    while( !a.isEmpty() || !b.isEmpty() ){ // a has element(s) OR b has element(s): but both aren't empty
+      if(a.isEmpty() && !b.isEmpty()){ // take b
+        mergedData.add(b.remove(0));
+      } else if(!a.isEmpty() && b.isEmpty()) { // take a
+        mergedData.add(a.remove(0));
+      } else { // neither empty, take smaller
+        if(a.get(0) > b.get(0)){ // take b
+          mergedData.add(b.remove(0));
+        } else { // take a
+          mergedData.add(a.remove(0));
+        }
       }
     }
 
-    return merged;
+    return mergedData;
   }
 
 
@@ -241,6 +244,36 @@ public class SortDemo{
     System.out.println("a and b merged: " + abMerged);
   }
 
+  // a: 5,1,8,9,3,6
+  // mergeSort(a) ==> 1,3,5,6,8,9
+  public ArrayList<Integer> mergeSort(ArrayList<Integer> a){
+    // break down to arraylists of size 1
+    // base case: if there are less than 2 elements in the array it is already sorted
+    if(a.size() == 1){
+      return a;
+    }
 
+    // big picture: split to L and R, sortL and sortR, merge(sortedL,sortedR)
+
+    //create the left side of the arraylist
+    // ArrayList<Integer> left = a.subList(0,a.size()/2); // subList returns List<Integer>
+    ArrayList<Integer> left = new ArrayList<Integer>(a.subList(0,a.size()/2));
+
+    //create the right side of the arraylist
+    ArrayList<Integer> right = new ArrayList<Integer>(a.subList(a.size()/2, a.size()));
+
+    left = mergeSort(left);
+    right = mergeSort(right);
+
+    // merge left and right
+    ArrayList<Integer> result = merge(left,right);
+
+    return result;
+
+  }
+
+  public void mergeSortTest(){
+    data = mergeSort(data);
+  }
 
 }

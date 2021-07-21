@@ -40,7 +40,9 @@ public class SortDemoDriver {
     //
     // System.out.println("Binary search, finding 10 in sd: " + sd.binarySearch(10));
 
-    sd.testMerge();
+    System.out.println(sd);
+    sd.mergeSortTest();
+    System.out.println(sd);
 
 
   }
