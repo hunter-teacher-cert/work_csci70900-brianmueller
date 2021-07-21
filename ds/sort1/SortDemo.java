@@ -249,7 +249,7 @@ public class SortDemo{
   public ArrayList<Integer> mergeSort(ArrayList<Integer> a){
     // break down to arraylists of size 1
     // base case: if there are less than 2 elements in the array it is already sorted
-    if(a.size() == 1){
+    if(a.size() < 2){
       return a;
     }
 
