@@ -173,6 +173,9 @@ public class Dlist{
   // 0         1     2
   // apple --> b --> carrot --> null
   public void remove(int index){
+    if(index == 0){
+      front = null;
+    }
     int i = 0;
     Node currentNode = front;
     while(currentNode != null){
