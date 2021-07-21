@@ -106,6 +106,9 @@ public class Llist{
   // apple --> b --> banana --> carrot --> null
 
   public void insert(int index, String value){
+    if(index == 0){
+      addFront(value);
+    }
     int i = 0;
     Node currentNode = front;
     while(currentNode != null){
