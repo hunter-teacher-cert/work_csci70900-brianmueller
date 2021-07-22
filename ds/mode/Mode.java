@@ -1,3 +1,8 @@
+// Group 4
+// Chris O'Brien
+// Stephannia Kabanakis
+// Brian Mueller
+
 import java.io.*;
 import java.util.*;
 
@@ -19,6 +24,7 @@ public class Mode{
     inputData = new ArrayList<Integer>();
 
     for (int i=0; i < size; i++){
+
       inputData.add(r.nextInt(50));
     }
   }
@@ -29,10 +35,13 @@ public class Mode{
   Find and return the smallest value in  InputData.
   */
 
-  public int findSmalletValue(){
-
-    return 0;
-
+  public int findSmallestValue(){
+  //  inputData = inputData.sort();
+  //  System.out.println("unsorted: " + inputData);
+  //sort data
+    Collections.sort(inputData);
+  //  System.out.println("sorted: " + inputData);
+    return inputData.get(0);
   }
 
   /**
@@ -41,7 +50,21 @@ public class Mode{
   Returns the frequency of value in inputData, that is, how often value appears
   */
   public int frequency(int value){
-    return 0;
+    int count = 0;
+    for(int i=0; i<inputData.size(); i++){
+      if(value == inputData.get(i)){
+      count++;
+      } //end if
+    } //end for loop
+    return count;
+  }
+  // get ith elemetn of inputdata
+  public int get(int i){
+    return inputData.get(i);
+  }
+
+  public void sort(){
+    Collections.sort(inputData);
   }
 
   /**
@@ -56,11 +79,57 @@ public class Mode{
   Note: you will probably use the frequency function you wrote in
   this solution but not findSmallestValue. the findSmallestValue
   function will help you find a strategy for approaching finding the mode.
+
   */
+  public int superCalcMode(){
+    Collections.sort(inputData); // allows us to not check a number that's already been checked
+    int currentValue = 0;
+    int currentFreq = 0;
+    int value = inputData.get(0);
+    int freq = frequency(value);
+    for (int i = 1; i < inputData.size(); i++){
+      if (inputData.get(i) != inputData.get(i-1)){ // if they're different, i.e. a new/different number
+        currentValue = inputData.get(i);
+        currentFreq = frequency(currentValue);
+        if (currentFreq > freq){
+          value = currentValue;
+          freq = currentFreq;
+        }
+      }
+    }
+    return value;
+  }
+
   public int calcMode(){
 
-    return 0;
+
+    // loop through every number
+    // count frequency of each number
+    // keep track of "reigning champ"
+    /* [ 2 3 2 4]
+    currentV = 2
+    current Freq = 2
+    value = 2
+    freq = 2
+
+    current 3
+    currentF = 1
+
+    */
+    int value = 0;
+    int freq = 0;
+    // [ 2   3   2   4 4 4 4 1]
+    for (int i = 0; i < inputData.size(); i++ ){
+      int currentValue = inputData.get(i);
+      int currentFreq = frequency(currentValue);
+      if (currentFreq > freq){
+        value = currentValue;
+        freq = currentFreq;
+      }
+    }
+    return value;
   }
+
   public String toString(){
     return ""+inputData;
   }
