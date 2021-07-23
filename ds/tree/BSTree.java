@@ -8,6 +8,23 @@ public class BSTree {
     root = null;
   }
 
+  public int search(int key){
+    TreeNode current = root;
+
+    while (/* what goes here */){
+      int currentValue = current.getValue();
+      if (currentValue == key){
+        // do something
+      } else if (currentValue < key){
+        // do something else
+      } else {
+        // do yet another thing
+      }
+    }
+    // do we really want to return -1?
+    return -1;
+  }
+
   public void seed(){
     TreeNode t;
 
