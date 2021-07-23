@@ -130,6 +130,13 @@ public class Mode{
     return value;
   }
 
+  // make an array with size that matches the highest possible random number generated
+  // set all to 0
+  // iterate through inputData, get the value, use THAT as the index, and increment (add a tally)
+  // public int fastMode(){
+  //
+  // }
+
   public String toString(){
     return ""+inputData;
   }
