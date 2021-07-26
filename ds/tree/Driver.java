@@ -34,11 +34,13 @@ public class Driver {
     }
     System.out.println("Inserting 13...");
     t.insert(13);
-    t.search(13);
+    System.out.println(t.search(13));
 
     // testing traverse
 
-    t.traverse();
+    t.preorderTraverse();
+    t.postorderTraverse();
+    t.inorderTraverse();
 
   }
 }
