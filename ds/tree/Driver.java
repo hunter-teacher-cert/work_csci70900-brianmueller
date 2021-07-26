@@ -36,6 +36,9 @@ public class Driver {
     t.insert(13);
     t.search(13);
 
-    
+    // testing traverse
+
+    t.traverse();
+
   }
 }

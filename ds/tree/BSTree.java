@@ -8,6 +8,32 @@ public class BSTree {
     root = null;
   }
 
+  private void traverse(TreeNode current){
+    if(current == null){
+      return;
+    }
+
+    // process
+    System.out.print(current.getData() + ", ");
+
+    // recursively print left subtree
+    traverse(current.getLeft());
+
+    // recursively print right subtree
+    traverse(current.getRight());
+
+  }
+
+  public void traverse(){
+    traverse(root);
+    System.out.println();
+  }
+
+
+
+
+
+
   public void insert(int key){
 
     TreeNode newNode = new TreeNode(key);
