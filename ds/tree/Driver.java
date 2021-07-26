@@ -9,6 +9,8 @@ public class Driver {
     t.seed();
     int value;
 
+    // testing search
+
     value = t.search(10);
     System.out.println(value);
 
@@ -22,6 +24,18 @@ public class Driver {
       System.out.println("17 not in tree");
     }
 
+    // testing insert
 
+    try {
+      value = t.search(13);
+      System.out.println(value);
+    } catch (NullPointerException e) {
+      System.out.println("13 not in tree");
+    }
+    System.out.println("Inserting 13...");
+    t.insert(13);
+    t.search(13);
+
+    
   }
 }
