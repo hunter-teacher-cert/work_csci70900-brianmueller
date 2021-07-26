@@ -8,21 +8,59 @@ public class BSTree {
     root = null;
   }
 
+  public void insert(int key){
+
+    TreeNode newNode = new TreeNode(key);
+
+    // if the tree is empty
+    // manually insert the new node as the root
+    if (root == null){
+      root = newNode;
+      return;
+    }
+
+    TreeNode front = root;
+    TreeNode trailer = root;
+
+    while (front != null){
+      int frontValue = front.getData();
+      if (frontValue == key){
+        // if we're here, it means the key is
+        // already in the tree so we can
+        // update this node in some way
+        // and then return
+        return;
+      } else if (frontValue < key){
+        trailer = front;
+        front = front.getRight();
+      } else {
+        trailer = front;
+        front = front.getLeft();
+      }
+    }
+    if (key > trailer.getData()){
+      // insert on the right
+      trailer.setRight(newNode);
+    } else {
+      // insert on left
+      trailer.setLeft(newNode);
+    }
+  }
+
   public int search(int key){
     TreeNode current = root;
 
-    while (/* what goes here */){
-      int currentValue = current.getValue();
+    while (current != null){
+      int currentValue = current.getData();
       if (currentValue == key){
-        // do something
+        return key;
       } else if (currentValue < key){
-        // do something else
+        current = current.getRight();
       } else {
-        // do yet another thing
+        current = current.getLeft();
       }
     }
-    // do we really want to return -1?
-    return -1;
+    throw new NullPointerException();
   }
 
   public void seed(){
