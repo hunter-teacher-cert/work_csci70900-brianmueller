@@ -8,6 +8,106 @@ public class BSTree {
     root = null;
   }
 
+
+  public void delete(int key){
+
+    // if the tree is empty, nothing to delete
+    if (root==null){
+      return;
+    }
+
+    // find the node we want to delete
+    // and the node above it using piggybacking
+    TreeNode front = root;
+    TreeNode trailer = root;
+    // keep track of which child front is (of trailer)
+    boolean frontIsALeftChild = true;
+
+    // stop if we found the key
+    // do the piggyback loop
+    // until we either find the node or null
+    // if the key isn't present
+    while (front != null && front.getData() != key){
+      if (front.getData() < key){
+        trailer = front;
+        front = front.getRight();
+        frontIsALeftChild = false;
+      } else {
+        trailer = front;
+        front = front.getLeft();
+        frontIsALeftChild = true;
+      }
+    }
+
+    // if key wasn't in tree
+    if(front == null){
+      return;
+    }
+    // if we get here:
+    // front points to node we want to delete
+    // trailer points to its parent
+
+    // case 1: // node to delete is a leaf
+    if(front.getLeft() == null && front.getRight() == null){
+      // point parent to null
+      if(frontIsALeftChild){
+        trailer.setLeft(null);
+      } else {
+        trailer.setRight(null);
+      }
+    }
+    // case 2a: front has one child (on right)
+    else if(front.getLeft() == null){
+      if(frontIsALeftChild){
+        trailer.setLeft(front.getRight());
+      } else { // front is a right child
+        trailer.setRight(front.getRight());
+      }
+    }
+    // case 2b: front has one child (on left)
+    else if(front.getRight() == null){
+      if(frontIsALeftChild){
+        trailer.setLeft(front.getLeft());
+      } else { // front is a right child
+        trailer.setRight(front.getLeft());
+      }
+    }
+    // case 3: front has two children
+    else {
+      // find the node with the largest value
+	    // on fronts left subtree
+	    // and replace front with it.
+
+      // find node with largest value on front's left subtree
+      TreeNode largestOnLeft = front.getLeft();
+      while(largestOnLeft.getRight() != null){
+        largestOnLeft = largestOnLeft.getRight();
+      }
+
+      // replace front with largestOnLeft
+      if(frontIsALeftChild){
+        // MISTAKE: this overwrites the front node, deleting fronts right subtree
+        // trailer.setLeft(largestOnLeft);
+
+        delete(largestOnLeft.getData()); // largestOnLeft had at most one node, so LonL's parent will (at most) point to LonL's child
+        largestOnLeft.setRight(front.getRight()); // we know largestOnLeft didn't have a right child
+        largestOnLeft.setLeft(front.getLeft()); // overwrite, if any
+        trailer.setLeft(largestOnLeft); // deletes front
+      } else { // front is a right child
+        // MISTAKE: this overwrites the front node, deleting fronts right subtree
+        // trailer.setRight(largestOnLeft);
+
+        delete(largestOnLeft.getData()); // largestOnLeft had at most one node, so LonL's parent will (at most) point to LonL's child
+        largestOnLeft.setRight(front.getRight()); // we know largestOnLeft didn't have a right child
+        largestOnLeft.setLeft(front.getLeft()); // overwrite, if any
+        trailer.setRight(largestOnLeft); // deletes front
+
+
+      }
+    }
+
+  }
+
   private void preorderTraverse(TreeNode current){
     if(current == null){
       return;
@@ -70,9 +170,6 @@ public class BSTree {
     inorderTraverse(root);
     System.out.println();
   }
-
-
-
 
 
 

@@ -42,5 +42,25 @@ public class Driver {
     t.postorderTraverse();
     t.inorderTraverse();
 
+    // testing delete
+    t.delete(1);
+    System.out.println("Deleting 1 (not present)");
+    t.inorderTraverse();
+
+    // case 1: leaf
+    // System.out.println("Deleting 22");
+    // t.delete(22);
+
+    // case 2: one child
+    // System.out.println("Deleting 15");
+    // t.delete(15);
+
+    // case 3: two children
+    System.out.println("Deleting 20");
+    t.delete(20);
+
+
+    t.inorderTraverse();
+
   }
 }
