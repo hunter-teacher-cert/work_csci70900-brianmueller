@@ -56,8 +56,8 @@ public class Driver {
     // t.delete(15);
 
     // case 3: two children
-    System.out.println("Deleting 20");
-    t.delete(20);
+    System.out.println("Deleting 10");
+    t.delete(10);
 
 
     t.inorderTraverse();

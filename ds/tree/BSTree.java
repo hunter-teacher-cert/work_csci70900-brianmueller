@@ -50,7 +50,9 @@ public class BSTree {
     // case 1: // node to delete is a leaf
     if(front.getLeft() == null && front.getRight() == null){
       // point parent to null
-      if(frontIsALeftChild){
+      if(root == front){
+        root = null;
+      } else if(frontIsALeftChild){
         trailer.setLeft(null);
       } else {
         trailer.setRight(null);
@@ -58,7 +60,9 @@ public class BSTree {
     }
     // case 2a: front has one child (on right)
     else if(front.getLeft() == null){
-      if(frontIsALeftChild){
+      if(root == front){
+        root = front.getRight();
+      } else if(frontIsALeftChild){
         trailer.setLeft(front.getRight());
       } else { // front is a right child
         trailer.setRight(front.getRight());
@@ -66,7 +70,9 @@ public class BSTree {
     }
     // case 2b: front has one child (on left)
     else if(front.getRight() == null){
-      if(frontIsALeftChild){
+      if(root == front){
+        root = front.getLeft();
+      } else if(frontIsALeftChild){
         trailer.setLeft(front.getLeft());
       } else { // front is a right child
         trailer.setRight(front.getLeft());
@@ -84,8 +90,15 @@ public class BSTree {
         largestOnLeft = largestOnLeft.getRight();
       }
 
+      if(root == front){
+        delete(largestOnLeft.getData()); // largestOnLeft had at most one node, so LonL's parent will (at most) point to LonL's child
+        largestOnLeft.setRight(front.getRight()); // we know largestOnLeft didn't have a right child
+        largestOnLeft.setLeft(front.getLeft()); // overwrite, if any
+        root = largestOnLeft;
+      }
+
       // replace front with largestOnLeft
-      if(frontIsALeftChild){
+      else if(frontIsALeftChild){
         // MISTAKE: this overwrites the front node, deleting fronts right subtree
         // trailer.setLeft(largestOnLeft);
 
