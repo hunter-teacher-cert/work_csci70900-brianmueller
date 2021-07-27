@@ -1,4 +1,7 @@
-package org.jsoup.examples;
+// javac -cp "jsoup-1.14.1.jar:." Wikipedia.java
+// java -cp "jsoup-1.14.1.jar:." Wikipedia.java
+
+// package org.jsoup.examples;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -19,6 +22,7 @@ public class Wikipedia {
         for (Element headline : newsHeadlines) {
             System.out.printf("%s\n\t%s", headline.attr("title"), headline.absUrl("href"));
         }
+        System.out.println();
     }
 
     // private static void log(String msg, String... vals) {
