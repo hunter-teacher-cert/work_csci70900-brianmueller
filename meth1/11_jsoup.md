@@ -10,8 +10,8 @@ Brian M., Michele P, Peter T, Stephannia K, Chris O
   * Change all instances of `log` to `System.out.printf`
 * Download jsoup and put it in the same directory as your `Wikipedia.java` file.
   * https://jsoup.org/
-* To compile and run, use the following commands:
-`javac -cp "jsoup-1.14.1.jar:." Wikipedia.java`
+* To compile and run, use the following commands:  
+`javac -cp "jsoup-1.14.1.jar:." Wikipedia.java`  
 `java -cp "jsoup-1.14.1.jar:." Wikipedia.java`
 
 ## Starter exercise
