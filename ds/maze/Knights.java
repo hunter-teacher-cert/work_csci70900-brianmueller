@@ -81,7 +81,7 @@ public class Knights{
   public boolean solve(int col,int row, int count){
     boolean solved = false;
     numTries++;
-    System.out.println("numTries: " + numTries);
+    System.out.println("numTries: " + numTries + "; count: " + count);
 
     System.out.println(clearScreen+this);
     delay(1);
@@ -95,6 +95,7 @@ public class Knights{
     // every board location
     if (count > rows*cols){
       System.out.println(clearScreen+this);
+      // System.out.println(this);
       System.out.println("numTries: " + numTries);
       return true;
     }
@@ -113,8 +114,8 @@ public class Knights{
     // Change CHANGETHIS
     board[col][row] = count;
 
-    delay(50);
-    System.out.println(clearScreen+this);
+    // delay(50);
+    // System.out.println(clearScreen+this);
 
 
     // Here we need to do try to do the 8 recursive calls
@@ -150,9 +151,9 @@ public class Knights{
     }
 
     // Here we unset where we were for the backtracking
-
     board[col][row]=0;
     return solved;
+
   }
 
 
