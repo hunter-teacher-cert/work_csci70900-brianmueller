@@ -54,14 +54,14 @@ function draw() {
 }
 ```
 Points of discussion before continuing:
-* If we wanted to, how could we make the ball start in the top-left corner?
-  * **Set `ballX = 0` and `ballY = 0`**
-* Which way does the ball begin moving? How do you know?
-  * **Down because `ballSpeedX = -5` and right because `ballSpeedY = -5`**
-* Any ideas why we are making `paddleHeight` its own variable?
-  * **It will make more sense when we are checking for collision between the ball/paddle. If students don't have a guess, tell them to just remember that we saved this value in a variable for use later.**
-* Does the order of our functions in `draw()` matter?
-  * **Yes and no `background()` needs to come first, but otherwise the order won't make much of a difference.**
+* **If we wanted to, how could we make the ball start in the top-left corner?**
+  * Set `ballX = 0` and `ballY = 0`
+* **Which way does the ball begin moving? How do you know?**
+  * Down because `ballSpeedX = -5` and right because `ballSpeedY = -5`
+* **Any ideas why we are making `paddleHeight` its own variable?**
+  * It will make more sense when we are checking for collision between the ball/paddle. If students don't have a guess, tell them to just remember that we saved this value in a variable for use later.
+* **Does the order of our functions in `draw()` matter?**
+  * Yes and no: `background()` needs to come first, but otherwise the order won't make much of a difference.
 
 #### For the following functions, repeat this pattern:
 * Type the code (not the comments), have students type as well. Explain what is going on.
