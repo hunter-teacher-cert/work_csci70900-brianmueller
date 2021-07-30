@@ -58,16 +58,16 @@ Prompt students to share what they learned. See what questions they have. Discus
 
 #### Example 1:
 ![](network1.png)
-* Can these computers communicate? If so, what kind of information could they share.
-  * **Yes! This is called "intranet." They can share files with each other.**
-* Are they using wired, wireless, or either?
-  * **They can use either!**
-* Can these computers visit websites? Why/why not?
-  * **No. They are not connected to any data centers.**
+* **Can these computers communicate? If so, what kind of information could they share.**
+  * Yes! This is called "intranet." They can share files with each other.
+* **Are they using wired, wireless, or either?**
+  * They can use either!
+* **Can these computers visit websites? Why/why not?**
+  * No. They are not connected to any data centers.
 
 #### Example 2:
 ![](network2.png)
-* Is there anything wrong with this network?
-  * **Computers don't have a cell antenna.**
-* Could the computer be replaced by a phone and the network still work?
-  * **Yes. A phone could also utilize its cell antenna and the router could be replaced by a cell tower.**
+* **Is there anything wrong with this network?**
+  * Computers don't have a cell antenna.
+* **Could the computer be replaced by a phone and the network still work?**
+  * Yes. A phone could also utilize its cell antenna and the router could be replaced by a cell tower.
