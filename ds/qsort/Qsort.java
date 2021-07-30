@@ -68,12 +68,12 @@ public class Qsort{
     // System.out.println("last: " + last);
     int pivotIndex;
     int pivotValue;
-    if(first < middle && middle < last ||
-       last < middle && middle < first){ // middle
+    if((first < middle && middle < last) ||
+       (last < middle && middle < first)){ // middle
       pivotIndex = q.size()/2;
       pivotValue = middle;
-    } else if(middle < first && first < last ||
-              last < first && first < middle){ // first
+    } else if((middle < first && first < last) ||
+              (last < first && first < middle)){ // first
       pivotIndex = 0;
       pivotValue = first;
     } else { // last
